@@ -20,6 +20,8 @@ class BoostNumpyConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=True"
 
+    def configure(self):
+        self.options['Boost'].without_python = False
 
     def source(self):
         self.run("git clone https://github.com/ndarray/Boost.NumPy.git sources")
